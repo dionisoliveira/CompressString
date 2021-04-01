@@ -1,21 +1,22 @@
 
 
-let input = "AAABBACC"
+let input = "AAABBACCiurioweurowiquroqwiuroiweurljklsdkldskllksdklasdklkkkddkddddddsd--000"
+            
 
 var numberLetter = Int(input.count)
 
 var compress:String =  ""
 
-var lastWord:String = ""
+var lastLetter:String = ""
 
-var countString:Int = 0
+var totalLetter:Int = 0
 
 func concatString(_ compress:String , _ wordConcat:String, _ countString:Int)->String {
     if(countString == 1) {
         return compress + wordConcat
     }
     else {
-         return compress + lastWord + String(countString)
+         return compress + lastLetter + String(countString)
     }
    
     
@@ -26,19 +27,25 @@ for  i in 0..<numberLetter {
     let currentword:String = String(input[index])
     //Fist time in loop it`s necessary set lastword equals current word
     if(i == 0){
-        lastWord = currentword
+        lastLetter = currentword
     }
     
     //It`s change current word and cont > 0, registre new item for concat
-    if (currentword  != lastWord  && countString > 0 ) {
-        compress = concatString(compress,lastWord,countString)
-            lastWord = currentword
-        countString = 0
+    if (currentword  != lastLetter  && totalLetter > 0 ) {
+        
+        compress = concatString(compress,lastLetter,totalLetter)
+        
+        lastLetter = currentword
+        
+        totalLetter = 0
     }
-    countString = countString + 1
+    totalLetter = countString + 1
 
 }
-//After exite to loop we have registre te last word computing
-compress = concatString(compress,lastWord,countString)
+//After exit to loop we have registre te last letter computing
+compress = concatString(compress,lastLetter,totalLetter)
 
 print(compress)
+
+
+
