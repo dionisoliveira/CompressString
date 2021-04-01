@@ -12,7 +12,7 @@ var lastLetter:String = ""
 var totalLetter:Int = 0
 
 func concatString(_ compress:String , _ wordConcat:String, _ countString:Int)->String {
-    if(countString == 1) {
+    if(totalLetter == 1) {
         return compress + wordConcat
     }
     else {
@@ -39,7 +39,7 @@ for  i in 0..<numberLetter {
         
         totalLetter = 0
     }
-    totalLetter = countString + 1
+    totalLetter = totalLetter + 1
 
 }
 //After exit to loop we have registre te last letter computing
