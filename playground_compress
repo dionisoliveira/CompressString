@@ -1,0 +1,29 @@
+
+let input = "AAAABBBBCCCC"
+
+var numberLetter = Int(input.count)
+
+var compress:String =  ""
+
+var lastWord:String = ""
+
+var countString:Int = 0
+
+
+for  i in 0..<numberLetter {
+    let index = input.index(input.startIndex,offsetBy:i)
+   
+    let currentword:String = String(input[index])
+    if(i == 0){
+        lastWord = currentword
+    }
+    if (currentword  != lastWord  && countString > 0 ) {
+        compress = compress + lastWord + String(countString)
+            lastWord = currentword
+        countString = 0
+    }
+    countString = countString + 1
+
+}
+
+print(compress)
