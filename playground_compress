@@ -1,12 +1,17 @@
 
-let input = "AAAABBBBCCCC"
+
+let input = "AAABBACC"
+//Get quantity letter in string
 
 var numberLetter = Int(input.count)
 
+//new string compressing
 var compress:String =  ""
 
+//lastword to controller in loop
 var lastWord:String = ""
 
+//total equal string
 var countString:Int = 0
 
 
@@ -18,12 +23,23 @@ for  i in 0..<numberLetter {
         lastWord = currentword
     }
     if (currentword  != lastWord  && countString > 0 ) {
-        compress = compress + lastWord + String(countString)
+        if(countString == 1) {
+            compress = compress + lastWord
+        }
+        else {
+            compress = compress + lastWord + String(countString)
+        }
             lastWord = currentword
         countString = 0
     }
     countString = countString + 1
 
+}
+if(countString == 1) {
+    compress = compress + lastWord
+}
+else {
+    compress = compress + lastWord + String(countString)
 }
 
 print(compress)
